@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import Login from "./components/Login"
 import { Route, Routes } from "react-router-dom";
 import Voting from "./components/Voting";
 
-
+import End from "./components/End"
+import Dashboard from "./components/Dashboard";
+import { Contextuse } from "./Providers";
 
 function App() {
+
+  const { currentLoggedIn, isAuth, votingStatus } = useContext(Contextuse)
+
   return (
-    <div>
-      <Routes><Route path="/" element={<Login />} /></Routes>
-      <Routes><Route path="/home" element={<Voting />} /></Routes>
-    </div>
+    <Routes><Route path="/login" element={<Login />} />
+      <Route path="/home" element={<Voting />} />
+      <Route path="/complete" element={<End />} />
+
+
+      <Route path="/" element={
+        isAuth === true ?
+          (currentLoggedIn.role === 'admin' ? <Dashboard /> : (votingStatus === true ? <Voting /> : <End />))
+          : <Login />
+      } />
+
+    </Routes>
+
   );
 }
 
