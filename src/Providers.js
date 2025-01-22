@@ -79,7 +79,7 @@ export default function Providers(props) {
                     description: "Focused on innovation and community service.",
                     image: "",
                     votes: 1, // Number of votes received
-                },
+                },  
                 {
                     candidateId: 2,
                     name: "Jane Smith",

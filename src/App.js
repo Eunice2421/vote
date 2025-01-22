@@ -6,6 +6,8 @@ import Voting from "./components/Voting";
 import End from "./components/End"
 import Dashboard from "./components/Dashboard";
 import { Contextuse } from "./Providers";
+import User_manage from "./components/User_manage";
+import Voting_manage from "./components/Manage";
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
           (currentLoggedIn.role === 'admin' ? <Dashboard /> : (votingStatus === true ? <Voting /> : <End />))
           : <Login />
       } />
+      <Route path="/user" element={<User_manage />} />
+      <Route path="/voter" element={<Voting_manage />} />
 
     </Routes>
 
