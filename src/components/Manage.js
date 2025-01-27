@@ -26,6 +26,16 @@ export default function Manage() {
         winner: ""
     })
 
+    let handleCandidateRemoval = (i) => {
+        console.log("Candidates", i)
+        setCreate(prev => {
+            let temp = { ...prev }
+            let tempcandi = temp.candidates.filter((_, index) => index !== i)
+            temp.candidates = tempcandi
+            return temp
+        })
+    }
+
     let nameRef = useRef()
     let teamRef = useRef()
     let imgRef = useRef('')
@@ -65,8 +75,10 @@ export default function Manage() {
             candidates: [
                 ...prev.candidates,
                 { name: name, teamName: team, image: photo },],
-        }));
 
+        }));
+        console.log(create.candidates)
+        console.log(create)
     }
 
     let Save = (e) => {
@@ -130,7 +142,7 @@ export default function Manage() {
 
             {cancel && (
                 <div className='popup-container'>
-                    <div className="popup border rounded absolute inset-0 bg-fuchsia-100 flex justify-center items-center">
+                    <div className="popup border rounded absolute inset-0 flex justify-center items-center">
                         <div className="w-full max-w-2xl max-h-[80vh] overflow-auto bg-cyan-200 rounded shadow-lg p-6">
                             <h3 className="text-center text-xl font-semibold">Create Voting</h3>
                             <div className="absolute top-4 right-4 cursor-pointer text-3xl font-bold" onClick={() => setCancel(false)}>x</div>
@@ -156,7 +168,7 @@ export default function Manage() {
                                     <input id="candidateName" type="text" className="w-full px-4 py-2 border rounded mt-2" ref={nameRef} placeholder="Candidate Name" />
                                     <label className="font-semibold mt-2" htmlFor="teamName">Team Name: </label>
                                     <input id="teamName" type="text" className="w-full px-4 py-2 border rounded mt-2" ref={teamRef} placeholder="Team Name" />
-                                    <label className="font-semibold mt-2" htmlFor="imageUpload">Upload Image: </label>
+                                    <label className="font-semibold mt-3" htmlFor="imageUpload">Upload Image: </label>
                                     <input id="imageUpload" type="file" className="w-full px-4 py-2 border rounded mt-2" ref={imgRef} />
                                     <button type="button" className="bg-blue-500 text-white px-4 py-2 rounded mt-4" onClick={() => Add()}>
                                         Add
@@ -164,13 +176,22 @@ export default function Manage() {
                                 </div>
 
                                 <div className="mt-4">
-                                    {votingSessions.map((votings, idx) =>
-                                        votings.candidates.map((candi, index) => (
-                                            <p className="border-2 border-solid border-black p-2 rounded mt-2" key={`${idx}-${index}`}>
-                                                {candi.name}
-                                            </p>
+                                    {
+                                        (create.candidates && create.candidates.length > 0) &&
+                                        create.candidates.map((candi, index) => (
+                                            <div key={`${index}`} >
+                                                <p className="border-2 border-solid border-black p-2 rounded mt-2" >
+                                                    {candi.name} </p>
+                                                <i className='bi bi-x' onClick={() => handleCandidateRemoval(index)}></i>
+                                            </div>
+
                                         ))
-                                    )}
+
+                                    }
+
+
+
+
                                 </div>
 
                                 <div className="flex justify-between mb-4 mt-4">
@@ -188,7 +209,7 @@ export default function Manage() {
             )}
 
             {dataview && (
-                <div className="popup border rounded absolute inset-0 bg-gray-400 p-6 flex justify-center items-center">
+                <div className="view_popup border rounded absolute inset-0 bg-gray-400 p-6 flex justify-center items-center">
                     <div className="w-full max-w-lg bg-cyan-200 p-6 rounded shadow-lg">
                         <h3 className="text-center text-xl font-semibold mb-6">Voting Details</h3>
                         <div

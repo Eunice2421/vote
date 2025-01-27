@@ -52,13 +52,13 @@ export default function Login() {
     }
 
     return (
-        <div className='first'>
+        <div className='first min-h-screen'>
             <nav className='flex justify-between items-center p-5 bg_first text-black'>
                 <h1 className='text-2xl font-bold'>eVoting</h1>
-                <div className='flex gap-4'>
-                    <button className='bg-blue-600 text-white font-semibold px-6 py-2 rounded-xl' onClick={() => { setLog(true); setSignup(false) }}>Login</button>
-                    <button className=' bg-blue-600 text-white font-semibold px-6 py-2 rounded-xl' onClick={() => { setSignup(true); setLog(false) }}>Sign Up</button>
-                    <button className='bg-blue-600 text-white font-semibold px-6 py-2 rounded-xl'>Logout</button>
+                <div className='flex gap-4 log_btn'>
+                    <button className='bg-blue-600 text-white font-semibold px-6 py-2 rounded-xl w-full  max-w-md h-12' onClick={() => { setLog(true); setSignup(false) }}>Login</button>
+                    <button className=' bg-blue-600 text-white font-semibold px-6 py-2 rounded-xl w-full max-w-md h-12' onClick={() => { setSignup(true); setLog(false) }}>SignUp</button>
+                    <button className='bg-blue-600 text-white font-semibold px-6 py-2 rounded-xl w-full max-w-md h-12'>Logout</button>
                 </div>
             </nav>
 
@@ -90,9 +90,8 @@ export default function Login() {
                 <div className='signup-container'>
                     <div className='signup bg-sky-300 p-8 rounded-lg'>
                         <div className='flex justify-center'>
-                            <p className='text-2xl font-bold'>Sign Up</p>
+                            <p className='text-2xl font-bold '>Sign Up</p>
                         </div>
-
                         <input type='text' placeholder='Full Name' className='log h-12 w-full max-w-md rounded-lg mt-8 mx-auto p-4' value={register.fullName} onChange={(e) => Validation(e, "fullName")} />
                         <input type='email' placeholder='Email' className='log h-12 w-full max-w-md rounded-lg mt-6 mx-auto p-4' value={register.email} onChange={(e) => Validation(e, "email")} />
                         <input type='text' placeholder='Contact Number' className='log h-12 w-full max-w-md rounded-lg mt-6 mx-auto p-4' value={register.contact} onChange={(e) => Validation(e, "contact")} />
@@ -106,12 +105,12 @@ export default function Login() {
                         <input type='password' placeholder='Password' className='log h-12 w-full max-w-md rounded-lg mt-6 mx-auto p-4' value={register.password} onChange={(e) => Validation(e, "password")} />
                         {check && <p className='text-red-600 text-center'>Invalid Information</p>}
 
-                        <div className="flex flex-col sm:flex-row justify-end gap-2 mt-3">
+                        <div className="flex flex-col sm:flex-row justify-around gap-2 mt-3">
                             <div className="w-full sm:w-auto">
                                 <button className="w-full h-12 bg-black text-white px-4 py-2 rounded-lg mt-2" onClick={(e) => handlesignup(e)} >Sign Up </button>
                             </div>
                             <div className="w-full sm:w-auto">
-                                <button className="w-full h-12 bg-black text-white px-4 py-2 rounded-lg mt-2"  onClick={() => setSignup(false)} > Close </button>
+                                <button className="w-full h-12 bg-black text-white px-4 py-2 rounded-lg mt-2" onClick={() => setSignup(false)} > Close </button>
                             </div>
                         </div>
                     </div>

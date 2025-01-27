@@ -11,9 +11,67 @@
     height: 100vh;
     overflow-y: hidden;
 }
-.bg_first{
+
+@media (min-width: 300px) and (max-width: 780px) {
+
+    .first {
+        background-size: contain;
+    }
+
+    .first h1 {
+        font-size: 18px;
+
+    }
+
+    .log_btn {
+        gap: 8px;
+    }
+
+    .log_btn button {
+        font-size: 10px;
+        width: 30%;
+    }
+
+    .sign,
+    .signup {
+        width: 60%;
+        max-width: 350px;
+        font-size: 10px;
+    }
+
+    .signup-container {
+        max-height: 540px;
+        height: 250px;
+        top: 50px;
+        position: relative;
+
+    }
+
+    .signup p {
+        font-size: large;
+        font-weight: 500;
+    }
+
+
+}
+
+/* @media (min-width: 350px) and (max-width: 480px) {
+    .first h1 {
+            font-size: 18px;
+          
+        }
+        .log_btn button {
+            font-size: 10px;
+            width: 30%;
+
+        
+}} */
+
+
+.bg_first {
     background-color: rgb(0, 217, 255)
 }
+
 .signin-container,
 .signup-container {
     height: 100%;
@@ -26,13 +84,12 @@
 
 .sign,
 .signup {
-    background-color:;
-    width: 40%;
-    max-width: 250px;
+    /* width: 60%; */
+    max-width: 400px;
     padding: 2rem;
     border-radius: 8px;
     margin-top: -50px;
-    height: auto;
+
 }
 
 @media (min-width: 640px) {
@@ -45,19 +102,19 @@
         backdrop-filter: brightness(70%) blur(4px);
     }
 
-    .sign,
+    /* .sign,
     .signup {
         max-width: 500px;
-    }
+    } */
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 
     .sign,
     .signup {
         max-width: 600px;
     }
-}
+}  */
 
 @media (max-width: 345px) {
     .btns {
@@ -72,6 +129,7 @@
         flex-direction: column;
     }
 }
+
 .pic {
     width: 100%;
     max-width: 350px;
@@ -148,6 +206,17 @@ ul {
     }
 }
 
+.user_popup {
+    width: 70%;
+    max-width: 700px;
+    padding: 20px;
+    background: rgba(187, 182, 182, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    left: 25%;
+    transition: all 0.3s ease;
+}
+
 .popup-container {
     position: fixed;
     top: 0;
@@ -172,32 +241,77 @@ ul {
     transition: all 0.3s ease;
 }
 
-@media (min-width: 350px) and (max-width: 480px) {
-    .create{
+@media (min-width: 330px) and (max-width: 480px) {
+    .create {
         padding: 5px;
+        right: 80px;
     }
+
+    .popup {
+        max-height: 800px;
+        margin-top: 150px;
+        width: 65%;
+        left: 80px;
+        padding: 15px;
+        height: 700px;
+
+    }
+
+    .user_popup {
+        max-height: 500px;
+        margin-top: 250px;
+        width: 65%;
+        left: 80px;
+        padding: 15px;
+        height: 700px;
+
+    }
+
 }
 
 @media (min-width: 490px)and (max-width: 770px) {
     .popup {
+        width: 50%;
+        left: 25%;
+        height: 600px;
+        margin-top: 100px;
+    }
+
+    .popup-container {
+        height: 800px;
+    }
+
+    .user_popup {
         width: 90%;
         left: 5%;
+        height: 800px;
+        margin-top: 200px;
     }
-    .table_res{
+
+    .table_res {
         width: 100%;
     }
-} 
+}
 
 
-@media (min-width: 350px) and (max-width: 480px) {
+/* @media (min-width: 330px) and (max-width: 480px) {
     .popup{
         width: 65%;
         left:80px;
         padding: 15px;
+        height: 700px;
+        top: 100px;
     }
+        .user_popup {
+            width: 65%;
+            left: 80px;
+            padding: 15px;
+            height: 700px;
+            top: 100px;
+        }
     .create{
         right: 80px;
     } 
     
     
-}
+} */
