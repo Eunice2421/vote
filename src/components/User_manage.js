@@ -48,7 +48,7 @@ export default function () {
 
       <table className="table-auto w-full text-left border-separate border-spacing-0">
         <caption className="text-lg font-semibold mb-4">List of users</caption>
-        <thead className="bg-cyan-500">
+        <thead className="bg-cyan-500 text-white">
           <tr>
             <th className="px-4 py-2 border-b">S.No</th>
             <th className="px-4 py-2 border-b">FullName</th>

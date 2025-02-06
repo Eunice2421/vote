@@ -50,37 +50,43 @@ export default function Manage() {
         }
     }
 
-    const form = new FormData();
+
     let Store = (e, keys) => {
-
-        let values = e.target.value
-
-        setCreate(prev => (
-            {
-                ...prev,
-                [keys]: values
-            }))
-
-        console.log(view)
+        console.log(e.target);  // Log the entire target element
+        let value = e.target.value;
+        console.log(value);  // Log the value
+        setCreate(prev => ({
+            ...prev,
+            [keys]: value
+        }));
     }
+
 
     let Add = () => {
         let name = nameRef.current.value
         let team = teamRef.current.value
         let photo = imgRef.current.files[0]
 
+        // setCreate((prev) => ({
+        //     candidates: [
+        //         ...prev.candidates,
+        //         { name: name, teamName: team, image: photo },],
 
+        // }));
 
-        setCreate((prev) => ({
-            candidates: [
-                ...prev.candidates,
-                { name: name, teamName: team, image: photo },],
+        setCreate(prev => {
+            let tempCreate = { ...prev }
+            tempCreate.candidates.push({ name: name, teamName: team, image: photo })
+            return tempCreate
+        })
 
-        }));
-        console.log(create.candidates)
-        console.log(create)
+        // console.log("create:",create.candidates)
+        console.log("Title", create.title)
+
     }
 
+    console.log("create value outside func:", create)
+    const form = new FormData();
     let Save = (e) => {
         e.preventDefault()
         let id;
@@ -91,7 +97,20 @@ export default function Manage() {
             let lastPro = votingSessions.slice(-1)
             id = lastPro[0].id + 1
         }
+        // console.log("Save data is", create)
+        // console.log("TitleName :", create.title)
+        form.append("titleName", create.title)
+        form.append("starttime", create.startTime)
+        form.append("endTime", create.endTime)
+        form.append("canditates", create.candidates)
+
+        // const entries = [];
+        for (let pair of form.entries()) {
+            console.log(pair[0] + ": " + pair[1]);
+        }
+
     }
+
     return (
         <div>
             <header>
@@ -109,7 +128,7 @@ export default function Manage() {
 
             <table className="table-auto w-full mt-14 relative border-collapse overflow-x-auto table_res">
                 <caption className="text-lg font-semibold mb-4 mt-5 head_list">List of Voting</caption>
-                <thead className="bg-cyan-500">
+                <thead className="bg-cyan-500 text-white">
                     <tr>
                         <th className="px-4 py-2 border-b text-left">S.No</th>
                         <th className="px-4 py-2 border-b text-left">Voting Id</th>
@@ -155,12 +174,12 @@ export default function Manage() {
 
                                 <div className="mt-4">
                                     <label className="font-semibold  hidden md:table-cell" htmlFor="startTime">Start Time: </label>
-                                    <input id="startTime" type="text" className="w-full px-4 py-2 border rounded mt-2" value={create.startTime} onChange={(e) => Store(e, 'startTime')} />
+                                    <input id="startTime" type="datetime-local" className="w-full px-4 py-2 border rounded mt-2" value={create.startTime} onChange={(e) => Store(e, 'startTime')} />
                                 </div>
 
                                 <div className="mt-4">
                                     <label className="font-semibold  hidden md:table-cell" htmlFor="endTime">End Time: </label>
-                                    <input id="endTime" type="text" className="w-full px-4 py-2 border rounded mt-2" value={create.endTime} onChange={(e) => Store(e, 'endTime')} />
+                                    <input id="endTime" type="datetime-local" className="w-full px-4 py-2 border rounded mt-2" value={create.endTime} onChange={(e) => Store(e, 'endTime')} />
                                 </div>
 
                                 <div className="mt-4">
@@ -180,26 +199,17 @@ export default function Manage() {
                                         (create.candidates && create.candidates.length > 0) &&
                                         create.candidates.map((candi, index) => (
                                             <div key={`${index}`} >
-                                                <p className="border-2 border-solid border-black p-2 rounded mt-2" >
-                                                    {candi.name} </p>
+                                                <p className="border-2 border-solid border-black p-2 rounded mt-2" > {candi.name} </p>
                                                 <i className='bi bi-x' onClick={() => handleCandidateRemoval(index)}></i>
-                                            </div>
-
-                                        ))
-
+                                            </div>))
                                     }
-
-
-
-
                                 </div>
 
                                 <div className="flex justify-between mb-4 mt-4">
                                     <button type="button" className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => setCancel(false)}>
                                         Cancel
                                     </button>
-                                    <button type="button" className="bg-blue-500 text-white px-4 py-2 rounded" onClick={(e) => Save(e)}>
-                                        Save
+                                    <button type="button" className="bg-blue-500 text-white px-4 py-2 rounded" onClick={(e) => Save(e)}> Save
                                     </button>
                                 </div>
                             </form>

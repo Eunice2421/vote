@@ -25,19 +25,19 @@ function Dashboard() {
         {/* Voting Management */}
         <div className="text-center">
           <img src={voting} alt="err" className="manage mx-auto mb-4" onClick={() => use("/voter")} />
-          <p className="text-xl font-bold">Voting Management</p>
+          <p className="text-xl font-bold mt-6">Voting Management</p>
         </div>
 
         {/* User Management */}
         <div className="text-center">
-          <img src={user} alt="err" className="manage mx-auto mb-4" onClick={() => use("/user")} />
-          <p className="text-xl font-bold">User Management</p>
+          <img src={user} alt="err" className="manage_2 mx-auto mb-4" onClick={() => use("/user")} />
+          <p className="text-xl font-bold mt-6">User Management</p>
         </div>
       </div>
 
       {/* Voting Details */}
       <div className="mt-8 px-4">
-        <h1 className="text-center text-2xl font-extrabold">Recent Voting</h1>
+        <h1 className="text-center text-2xl font-extrabold text-sky-600">Recent Voting</h1>
         <div className="docs mt-6 text-xl font-semibold flex items-center justify-center">
           {current ? (
             <ul type='square' >

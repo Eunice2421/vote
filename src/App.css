@@ -2,14 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-
+body {
+    font-family: "Exo 2", serif;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
+}
 
 .first {
     background-image: url('./assets/vote_home_page.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
+}
+
+@media (min-width: 800px) {
+    .evote {
+        width: 400px;
+        height: 350px;
+    }
 }
 
 @media (min-width: 300px) and (max-width: 780px) {
@@ -41,15 +53,20 @@
 
     .signup-container {
         max-height: 540px;
-        height: 250px;
-        top: 50px;
-        position: relative;
+        height: 200px;
+        /* position: relative;
+        top: 96px; */
 
     }
 
     .signup p {
         font-size: large;
         font-weight: 500;
+    }
+
+    .evote {
+        width: 200px;
+        height: 150px;
     }
 
 
@@ -66,18 +83,25 @@
     justify-content: center;
     align-items: center;
     backdrop-filter: brightness(80%) blur(5px);
+    margin-bottom: 50px;
 
 }
 
-.sign,
-.signup {
+.sign {
     /* width: 60%; */
     max-width: 400px;
     padding: 2rem;
     border-radius: 8px;
-    margin-top: 150px;
-
 }
+
+.signup {
+    width: 60%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: -50px;
+}
+
 
 @media (min-width: 640px) {
     .first {
@@ -94,15 +118,6 @@
         max-width: 500px;
     } */
 }
-
- @media (min-width: 430px) {
-
-    
-    .signup {
-        max-width: 600px;
-        margin-top: 150px;
-    }
-}  
 
 @media (max-width: 345px) {
     .btns {
@@ -138,21 +153,6 @@
     justify-content: space-around;
 }
 
-.win {
-    width: 600px;
-    height: 400px;
-    border-radius: 20px;
-    margin-left: 400px;
-}
-
-.win_line {
-    margin-left: 550px;
-    margin-top: 50px;
-}
-
-.end_body {
-    background-color: rgba(51, 238, 222, 0.61);
-}
 
 .dash {
     margin-left: auto;
@@ -161,13 +161,26 @@
 .manage {
     width: 250px;
     height: 250px;
-    border: 2px solid brown;
+    border: 2px solid rgb(44, 137, 180);
     border-radius: 10px;
-    box-shadow: 10px 10px 10px 10px rgb(240, 139, 139);
+    box-shadow: 10px 10px 10px 10px rgb(166, 230, 255);
     transition: all 0.3s ease;
 }
 
 .manage:hover {
+    transform: scale(1.05);
+}
+
+.manage_2 {
+    width: 250px;
+    height: 250px;
+    border: 2px solid brown;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 10px rgb(241, 170, 168);
+    transition: all 0.3s ease;
+}
+
+.manage_2:hover {
     transform: scale(1.05);
 }
 
@@ -252,9 +265,7 @@ ul {
         left: 80px;
         padding: 15px;
         height: 700px;
-
     }
-
 }
 
 @media (min-width: 490px)and (max-width: 770px) {
@@ -279,27 +290,24 @@ ul {
     .table_res {
         width: 100%;
     }
+
 }
 
+.user_bg {
+    background-image: url('./assets/curve.png');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-/* @media (min-width: 330px) and (max-width: 480px) {
-    .popup{
-        width: 65%;
-        left:80px;
-        padding: 15px;
-        height: 700px;
-        top: 100px;
+}
+
+@media (min-width : 250px) and (max-width : 670px) {
+    .complete {
+        margin-top: -90px;
     }
-        .user_popup {
-            width: 65%;
-            left: 80px;
-            padding: 15px;
-            height: 700px;
-            top: 100px;
-        }
-    .create{
-        right: 80px;
-    } 
-    
-    
-} */
+
+    .home_para {
+        font-size: 15px;
+    }
+}

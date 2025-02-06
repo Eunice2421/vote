@@ -12,9 +12,10 @@ export default function Providers(props) {
     const currentLoggedIn = {
         userId: 1,
         fullname: "Admin User",
-        contact: "9999999999",
+        contact: "9935671340",
         city: "Admin City",
         email: "admin@test.com",
+        password: "test",
         gender: "Other",
         role: "admin", // Specifies the admin role
         hasVoted: [], // Admin does not participate in voting
@@ -29,7 +30,7 @@ export default function Providers(props) {
         {
             userId: 1,
             fullname: "Admin User",
-            contact: "9999999999",
+            contact: "7390607713",
             city: "Admin City",
             email: "admin1@gmail.com",
             password: "test",
@@ -40,7 +41,7 @@ export default function Providers(props) {
         {
             userId: 2,
             fullname: "Alice Johnson",
-            contact: "1234567890",
+            contact: "9342750843",
             city: "New York",
             email: "alice@test.com",
             password: "test",
@@ -51,7 +52,7 @@ export default function Providers(props) {
         {
             userId: 3,
             fullname: "Bob Williams",
-            contact: "9876543210",
+            contact: "6380932567",
             city: "Los Angeles",
             email: "bob@test.com",
             password: "test",
@@ -79,7 +80,7 @@ export default function Providers(props) {
                     description: "Focused on innovation and community service.",
                     image: "",
                     votes: 1, // Number of votes received
-                },  
+                },
                 {
                     candidateId: 2,
                     name: "Jane Smith",

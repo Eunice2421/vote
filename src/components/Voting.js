@@ -16,7 +16,7 @@ export default function Voting() {
     return (
         <div>
             {/* Navbar */}
-            <nav className='text-left font-bold bg-blue-400 text-black p-5 text-2xl'>
+            <nav className='text-left font-bold bg-sky-400 text-black p-5 text-2xl'>
                 eVoting
             </nav>
 
@@ -35,7 +35,7 @@ export default function Voting() {
                         <p>Team A</p>
                         <p>President</p>
                         <button
-                            className={`w-24 h-10 rounded-md ${vote && Candidate !== '1st Candidate' ? 'bg-gray-400' : 'bg-black text-white'}`}
+                            className={`w-24 h-10 rounded-md ${vote && Candidate !== '1st Candidate' ? 'bg-sky-200' : 'bg-sky-600 text-white'}`}
                             disabled={vote && Candidate !== '1st Candidate'} onClick={() => handleVote('1st Candidate')} >
                             Vote
                         </button>
@@ -50,7 +50,7 @@ export default function Voting() {
                         <p>Team B</p>
                         <p>President</p>
                         <button
-                            className={`w-24 h-10 rounded-md ${vote && Candidate !== '2nd Candidate' ? 'bg-gray-400' : 'bg-black text-white'}`}
+                            className={`w-24 h-10 rounded-md ${vote && Candidate !== '2nd Candidate' ? 'bg-sky-200' : 'bg-sky-600 text-white'}`}
                             disabled={vote && Candidate !== '2nd Candidate'}
                             onClick={() => handleVote('2nd Candidate')}
                         >
@@ -67,7 +67,7 @@ export default function Voting() {
                         <p>Team C</p>
                         <p>President</p>
                         <button
-                            className={`w-24 h-10 rounded-md ${vote && Candidate !== '3rd Candidate' ? 'bg-gray-400' : 'bg-black text-white'}`}
+                            className={`w-24 h-10 rounded-md ${vote && Candidate !== '3rd Candidate' ? 'bg-sky-200' : 'bg-sky-600 text-white'}`}
                             disabled={vote && Candidate !== '3rd Candidate'}
                             onClick={() => handleVote('3rd Candidate')}
                         >

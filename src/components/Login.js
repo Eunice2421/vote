@@ -14,7 +14,16 @@ export default function Login() {
     let use = useNavigate()
 
     let Validation = (e, keys) => {
+
+        var phoneregex = /^[6-9][0-9]{9}$/
         let values = e.target.value
+        if (keys === "contact") {
+            if (phoneregex.test(values)) {
+                setCheck(false)
+            } else {
+                setCheck(true)
+            }
+        }
         setRegsiter(prev => ({
             ...prev, [keys]: values
         }))
@@ -25,13 +34,14 @@ export default function Login() {
         setSignup(false)
         if (valid.email === "" && valid.password === "") {
             setCheck(true)
-        } else {
+        }
+        else {
             let set = users.find((element) => element.email === valid.email && element.password === valid.password)
             if (set) {
                 setLog(false)
                 let status = votingSessions.find((element) => element.status === 'live')
                 if (status) {
-                    use('/home')
+                    use('/live')
                 } else {
                     use('/complete')
                 }
@@ -41,7 +51,12 @@ export default function Login() {
         }
     }
 
+    // RegExp{ var phoneregex = /^[6-9][0-9]{9}$/ }
+
+
+    const form = new FormData();
     function handlesignup(e) {
+
         e.preventDefault()
         if (register.fullName === "" || register.email === "" || register.contact === "" || register.gender === "" || register.city === "" || register.password === "") {
             setCheck(true)
@@ -49,10 +64,22 @@ export default function Login() {
             setCheck(false)
             // Handle user registration logic here
         }
+        form.append("FullName", register.fullName)
+        form.append("Email", register.email)
+        form.append("Contactno", register.contact)
+        form.append("Gender", register.gender)
+        form.append("City", register.city)
+        form.append("password", register.password)
+
+
+        for (let pair of form.entries()) {
+            console.log(pair[0] + ": " + pair[1]);
+        }
+
     }
 
     return (
-        <div className='first min-h-screen'>
+        <div className='first min-h-screen  md:overflow-hidden'>
             <nav className='flex justify-between items-center p-5 bg_first text-black'>
                 <h1 className='text-2xl font-bold'>eVoting</h1>
                 <div className='flex gap-4 log_btn'>
