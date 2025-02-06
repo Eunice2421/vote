@@ -54,9 +54,6 @@ body {
     .signup-container {
         max-height: 540px;
         height: 200px;
-        /* position: relative;
-        top: 96px; */
-
     }
 
     .signup p {
@@ -265,6 +262,12 @@ ul {
         left: 80px;
         padding: 15px;
         height: 700px;
+    }
+    .signup{
+        margin-top: 150px;
+        height: auto;
+        overflow-y: scroll;
+
     }
 }
 
