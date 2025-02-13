@@ -53,7 +53,7 @@ function Dashboard() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Dashboard;

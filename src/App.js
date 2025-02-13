@@ -30,7 +30,6 @@ function App() {
       } />
       <Route path="/user" element={<User_manage />} />
       <Route path="/voter" element={<Voting_manage />} />
-
     </Routes>
 
   );

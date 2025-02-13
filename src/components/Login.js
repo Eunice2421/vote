@@ -51,7 +51,7 @@ export default function Login() {
         }
     }
 
-    // RegExp{ var phoneregex = /^[6-9][0-9]{9}$/ }
+
 
 
     const form = new FormData();

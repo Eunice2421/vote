@@ -75,52 +75,52 @@ export default function () {
       {/* Read only popup */}
       {
         dataview && (
-          
-            <div className="user_popup fixed inset-0 bg-opacity-50 flex justify-center items-center z-50">
-              <div className="bg-cyan-200 rounded-lg w-full max-w-lg p-6 relative">
-                <h3 className="text-center text-xl font-semibold mb-4">User Details</h3>
-                <div className="absolute top-2 right-2 text-3xl font-bold cursor-pointer" onClick={() => setdataView(false)}>
-                  &times;
+
+          <div className="user_popup fixed inset-0 bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-cyan-200 rounded-lg w-full max-w-lg p-6 relative">
+              <h3 className="text-center text-xl font-semibold mb-4">User Details</h3>
+              <div className="absolute top-2 right-2 text-3xl font-bold cursor-pointer" onClick={() => setdataView(false)}>
+                &times;
+              </div>
+
+              <div>
+                <div className="mb-4">
+                  <label className="font-semibold">Name:</label>
+                  <p className="pl-3 inline-block">{view.fullname}</p>
                 </div>
 
-                <div>
-                  <div className="mb-4">
-                    <label className="font-semibold">Name:</label>
-                    <p className="pl-3 inline-block">{view.fullname}</p>
-                  </div>
+                <div className="mb-4">
+                  <label className="font-semibold">Contact:</label>
+                  <p className="pl-3 inline-block">{view.contact}</p>
+                </div>
 
-                  <div className="mb-4">
-                    <label className="font-semibold">Contact:</label>
-                    <p className="pl-3 inline-block">{view.contact}</p>
-                  </div>
+                <div className="mb-4">
+                  <label className="font-semibold">City:</label>
+                  <p className="pl-3 inline-block">{view.city}</p>
+                </div>
 
-                  <div className="mb-4">
-                    <label className="font-semibold">City:</label>
-                    <p className="pl-3 inline-block">{view.city}</p>
-                  </div>
+                <div className="mb-4">
+                  <label className="font-semibold">Email:</label>
+                  <p className="pl-3 inline-block">{view.email}</p>
+                </div>
 
-                  <div className="mb-4">
-                    <label className="font-semibold">Email:</label>
-                    <p className="pl-3 inline-block">{view.email}</p>
-                  </div>
+                <div className="mb-4">
+                  <label className="font-semibold">Gender:</label>
+                  <p className="pl-3 inline-block">{view.gender}</p>
+                </div>
 
-                  <div className="mb-4">
-                    <label className="font-semibold">Gender:</label>
-                    <p className="pl-3 inline-block">{view.gender}</p>
-                  </div>
-
-                  <div className="mb-4">
-                    <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-full sm:w-auto" onClick={() => setdataView(false)}>
-                      Cancel
-                    </button>
-                  </div>
+                <div className="mb-4">
+                  <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-full sm:w-auto" onClick={() => setdataView(false)}>
+                    Cancel
+                  </button>
                 </div>
               </div>
             </div>
-          
-            )
-      }
           </div>
-          
+
+        )
+      }
+    </div>
+
   )
 }
