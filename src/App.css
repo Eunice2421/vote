@@ -263,13 +263,13 @@ ul {
         padding: 15px;
         height: 700px;
     }
-    .signup{
+    .signup {
         margin-top: 150px;
         height: auto;
         overflow-y: scroll;
-
     }
 }
+
 
 @media (min-width: 490px)and (max-width: 770px) {
     .popup {
@@ -293,6 +293,9 @@ ul {
     .table_res {
         width: 100%;
     }
+         .signup {
+             margin-top: 150px;
+             height: auto;}
 
 }
 
